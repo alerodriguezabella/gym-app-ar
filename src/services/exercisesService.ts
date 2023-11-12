@@ -1,16 +1,16 @@
 import axios from 'axios';
 
-export type Exercise = {
+export type ExerciseType = {
   id: number;
   name: string;
   videoUrl: string;
 }
 
-export async function getExercises(): Promise<Exercise[]> {
+export async function getExercises(): Promise<ExerciseType[]> {
   const response = await axios
     .request({
       method: 'GET',
 		  url: 'http://localhost:3000/exercises',
     })
-  return response.data.data as Exercise[];
+  return response.data.data as ExerciseType[];
 }
