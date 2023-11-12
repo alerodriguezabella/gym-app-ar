@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { getExercises, Exercise } from './services/exercisesServices';
+import Session from './components/Session';
+import { getSessions, SessionType } from './services/sessionsService';
 
 function App() {
-  const [exercises, setExercises] = useState([] as Exercise[]);
+  const [sessions, setSessions] = useState([] as SessionType[]);
 
   useEffect(() => {
     async function fetchExercises(){
-      const result = await getExercises()
-      setExercises(result);
+      const result = await getSessions()
+      setSessions(result);
     }
     fetchExercises()
   }, [])
 
-  console.log(exercises)
   return (
     <div>
-      {exercises.map((exercise) => <p key={exercise.id}>{exercise.name}</p>)}
+      {sessions.map((session) => <Session key={session.id} session={session}/>)}
     </div>
   );
 }
