@@ -1,23 +1,18 @@
-import React, { useEffect, useState } from 'react';
 import './App.css';
-import Session from './components/Session';
-import { getSessions, SessionType } from './services/sessionsService';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Workouts from './pages/Workouts';
+import WorkoutDetail from './pages/WorkoutDetail';
+import NotFound from "./pages/NotFound";
 
 function App() {
-  const [sessions, setSessions] = useState([] as SessionType[]);
-
-  useEffect(() => {
-    async function fetchExercises(){
-      const result = await getSessions()
-      setSessions(result);
-    }
-    fetchExercises()
-  }, [])
-
   return (
-    <div>
-      {sessions.map((session) => <Session key={session.id} session={session}/>)}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Workouts />} />
+        <Route path="/:id" element={<WorkoutDetail />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
