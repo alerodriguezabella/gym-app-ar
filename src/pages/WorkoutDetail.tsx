@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Workout from '../components/Workout';
 import { getWorkout, WorkoutType } from '../services/workoutsService';
 import { useParams } from "react-router-dom";
-import Exercise from '../components/Exercise';
+import WorkoutExercise from '../components/WorkoutExercise';
 import { useNavigate } from 'react-router-dom';
 
 function WorkoutDetail() {
@@ -27,7 +27,7 @@ function WorkoutDetail() {
     <div>
       <button onClick={() => navigate(-1)}>Back</button>
       <Workout workout={workout}/>
-      {workout.exercises.map((exercise) => <Exercise exercise={exercise}/>)}
+      {workout.workoutExercises.map((workoutExercise) => <WorkoutExercise key={workoutExercise._id} workoutExercise={workoutExercise}/>)}
     </div>
   );
 }

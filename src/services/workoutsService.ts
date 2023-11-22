@@ -1,11 +1,23 @@
 import axios from 'axios';
 import { ExerciseType } from './exercisesService';
 
+export type ExerciseSetType = {
+  _id: string;
+  repetitions: number;
+  weight: number;
+}
+
+export type WorkoutExerciseType = {
+  _id: string;
+  exercise: ExerciseType;
+  exerciseSets: ExerciseSetType[];
+  notes?: string;
+}
+
 export type WorkoutType = {
   _id: string;
-  // user_id: number;
   name: string;
-  exercises: ExerciseType[]
+  workoutExercises: WorkoutExerciseType[];
 }
 
 export async function getWorkouts(): Promise<WorkoutType[]> {
