@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Workout from '../components/Workout';
 import { getWorkout, WorkoutType } from '../services/workoutsService';
 import { useParams } from "react-router-dom";
+import Exercise from '../components/Exercise';
 
 
 function WorkoutDetail() {
@@ -18,11 +19,13 @@ function WorkoutDetail() {
     fetchWorkout()
   }, [id])
 
+  if(!workout){
+    return null
+  }
   return (
     <div>
-      <p>Workout detail</p>
-      {/* {workout.map((workout) => <Workout key={workout._id} workout={workout}/>)} */}
-      {workout ? <Workout workout={workout}/> : null}
+      <Workout workout={workout}/>
+      {workout.exercises.map((exercise) => <Exercise exercise={exercise}/>)}
     </div>
   );
 }
