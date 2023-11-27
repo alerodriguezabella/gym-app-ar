@@ -20,11 +20,13 @@ export type WorkoutType = {
   workoutExercises: WorkoutExerciseType[];
 }
 
+const url = process.env.BASE_URL || 'http://localhost:3000'
+
 export async function getWorkouts(): Promise<WorkoutType[]> {
   const response = await axios
     .request({
       method: 'GET',
-		  url: 'http://localhost:3000/workouts',
+		  url: `${url}/workouts`,
     })
   return response.data.data as WorkoutType[];
 }
@@ -33,7 +35,7 @@ export async function getWorkout(id: string): Promise<WorkoutType> {
   const response = await axios
     .request({
       method: 'GET',
-		  url: `http://localhost:3000/workouts/${id}`,
+		  url: `${url}/workouts/${id}`,
     })
   return response.data.data as WorkoutType;
 }
