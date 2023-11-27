@@ -20,7 +20,7 @@ export type WorkoutType = {
   workoutExercises: WorkoutExerciseType[];
 }
 
-const url = process.env.BASE_URL || 'http://localhost:3000'
+const url = process.env.REACT_APP_BASE_URL || 'http://localhost:3000';
 
 export async function getWorkouts(): Promise<WorkoutType[]> {
   const response = await axios

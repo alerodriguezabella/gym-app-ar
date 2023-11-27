@@ -6,7 +6,7 @@ export type ExerciseType = {
   videoUrl: string;
 }
 
-const url = process.env.BASE_URL || 'http://localhost:3000'
+const url = process.env.REACT_APP_BASE_URL || 'http://localhost:3000';
 
 export async function getExercises(): Promise<ExerciseType[]> {
   const response = await axios
