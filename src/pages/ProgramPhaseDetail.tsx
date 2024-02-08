@@ -11,7 +11,7 @@ function ProgramPhaseDetail() {
   return (
     <div>
       <button onClick={() => navigate(-1)}>Back</button>
-      <p>{programPhase.name}</p>
+      <h1>{programPhase.name}</h1>
       {programPhase.workouts.map((workout) => <Link to={`/workout/${workout._id}`}><Workout key={workout._id} workout={workout}/></Link>)}
     </div>
   );

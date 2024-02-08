@@ -1,8 +1,11 @@
 * {
   font-family: 'Raleway', sans-serif;
+  background-color: #DCDCDD;
+  color: #46494C;
+  text-decoration: none;
 }
 
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -39,4 +42,22 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.phase-name:hover, .workout-name:hover, .program:hover {
+  cursor: pointer;
+  color: #1985A1;
 }
+
+button {
+  border: 1.5px solid #C5C3C6;
+  padding: 5px 15px;
+  border-radius: 15%;
+}
+
+button:hover {
+  background-color: #C5C3C6;
+  cursor: pointer;
+}
+
+

@@ -31,7 +31,7 @@ function ProgramDetail() {
     <div>
       <button onClick={() => navigate(-1)}>Back</button>
       <Program program={program}/>
-      {program.programPhases.map((programPhase) => <p onClick={() => handleClick(programPhase)}>{programPhase.name}</p>)}
+      {program.programPhases.map((programPhase) => <h3 className='phase-name' onClick={() => handleClick(programPhase)}>{programPhase.name}</h3>)}
     </div>
   );
 }
