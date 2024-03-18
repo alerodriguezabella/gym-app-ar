@@ -32,14 +32,6 @@ function WorkoutDetail() {
           <WorkoutExercise key={workoutExercise._id} workoutExercise={workoutExercise}/>
         )}
       </div>
-
-      {/* <Grid container spacing={3} style={{marginTop: '30px'}}>
-        {workout.workoutExercises.map((workoutExercise, index) => (
-          <Grid item key={index} xs={12} sm={6} md={6} lg={3} xl={3}>
-            <WorkoutExercise key={workoutExercise._id} workoutExercise={workoutExercise}/>
-          </Grid>
-        ))}
-      </Grid> */}
     </div>
   );
 }
