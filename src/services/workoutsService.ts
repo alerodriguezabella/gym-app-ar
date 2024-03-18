@@ -5,6 +5,7 @@ export type ExerciseSetType = {
   _id: string;
   repetitions: number;
   weight: number;
+  isWarmUp: boolean;
 }
 
 export type WorkoutExerciseType = {
@@ -12,6 +13,7 @@ export type WorkoutExerciseType = {
   exercise: ExerciseType;
   exerciseSets: ExerciseSetType[];
   notes?: string;
+  rpe?: number;
 }
 
 export type WorkoutType = {
