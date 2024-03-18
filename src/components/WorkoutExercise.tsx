@@ -5,8 +5,6 @@ import Typography from '@mui/material/Typography';
 import { WorkoutExerciseType } from "../services/workoutsService";
 
 export default function WorkoutExercise({workoutExercise}: {workoutExercise:WorkoutExerciseType}) {
-  const sets = workoutExercise.exerciseSets.map(set => `${set.repetitions}x${set.weight}x${set.isWarmUp}`).join(" | ")
-
   return (
     <Card sx={{ width: 345, m: 2,  backgroundColor: '#e9ecef'}}>
       <CardMedia

@@ -3,7 +3,6 @@ import { getWorkout, WorkoutType } from '../services/workoutsService';
 import { useParams } from "react-router-dom";
 import WorkoutExercise from '../components/WorkoutExercise';
 import BackButton from '../components/BackButton';
-import { Grid } from '@mui/material';
 
 function WorkoutDetail() {
   const [workout, setWorkout] = useState<WorkoutType | null>(null);

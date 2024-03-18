@@ -1,9 +1,6 @@
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from '@mui/material';
 
 export default function Navbar() {
@@ -21,7 +18,7 @@ export default function Navbar() {
           </IconButton> */}
           <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center'}}>
             <Link href="/"> 
-              <img style={{ margin: 'auto', width: '50px', height: '50px'}} src={require('../assets/gym-app-logo.png')}/>
+              <img alt='app-logo' style={{ margin: 'auto', width: '50px', height: '50px'}} src={require('../assets/gym-app-logo.png')}/>
             </Link>
           </Box>
           {/* <Button color="inherit">Login</Button> */}
