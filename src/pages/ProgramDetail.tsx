@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { ProgramPhaseType, ProgramType, getProgram } from '../services/programsService';
-import Program from '../components/Program';
+import BackButton from '../components/BackButton';
 
 function ProgramDetail() {
   const [program, setProgram] = useState<ProgramType | null>(null);
@@ -29,9 +29,17 @@ function ProgramDetail() {
 
   return (
     <div>
-      <button onClick={() => navigate(-1)}>Back</button>
-      <Program program={program}/>
-      {program.programPhases.map((programPhase) => <h3 className='phase-name' onClick={() => handleClick(programPhase)}>{programPhase.name}</h3>)}
+      <div style={{display: 'flex', alignItems: 'center' }}>
+        <BackButton/>
+        <h1 style={{margin: 0}}>{program.name}</h1>
+      </div>
+      <ul>
+        {program.programPhases.map((programPhase) => 
+          <li>
+            <h2 className='link-primary' onClick={() => handleClick(programPhase)}>{programPhase.name}</h2>
+          </li>
+        )}
+      </ul>
     </div>
   );
 }

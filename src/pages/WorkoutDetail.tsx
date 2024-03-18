@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import Workout from '../components/Workout';
+import { useEffect, useState } from 'react';
 import { getWorkout, WorkoutType } from '../services/workoutsService';
 import { useParams } from "react-router-dom";
 import WorkoutExercise from '../components/WorkoutExercise';
-import { useNavigate } from 'react-router-dom';
+import BackButton from '../components/BackButton';
+import { Grid } from '@mui/material';
 
 function WorkoutDetail() {
   const [workout, setWorkout] = useState<WorkoutType | null>(null);
   const { id } = useParams();
-  const navigate = useNavigate()
 
   useEffect(() => {
     async function fetchWorkout(){
@@ -25,9 +24,23 @@ function WorkoutDetail() {
   }
   return (
     <div>
-      <button onClick={() => navigate(-1)}>Back</button>
-      <Workout workout={workout}/>
-      {workout.workoutExercises.map((workoutExercise) => <WorkoutExercise key={workoutExercise._id} workoutExercise={workoutExercise}/>)}
+      <div style={{display: 'flex', alignItems: 'center' }}>
+        <BackButton/>
+        <h1 style={{margin: 0}}>{workout.name}</h1>
+      </div>
+      <div style={{marginTop: '30px', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly'}}>
+        {workout.workoutExercises.map((workoutExercise) => 
+          <WorkoutExercise key={workoutExercise._id} workoutExercise={workoutExercise}/>
+        )}
+      </div>
+
+      {/* <Grid container spacing={3} style={{marginTop: '30px'}}>
+        {workout.workoutExercises.map((workoutExercise, index) => (
+          <Grid item key={index} xs={12} sm={6} md={6} lg={3} xl={3}>
+            <WorkoutExercise key={workoutExercise._id} workoutExercise={workoutExercise}/>
+          </Grid>
+        ))}
+      </Grid> */}
     </div>
   );
 }

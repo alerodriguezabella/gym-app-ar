@@ -1,18 +1,27 @@
-import { Link, useNavigate } from 'react-router-dom';
 import { ProgramPhaseType } from '../services/programsService';
 import { useLocation } from "react-router-dom";
-import Workout from '../components/Workout';
+import { Link } from '@mui/material';
+import BackButton from '../components/BackButton';
 
 function ProgramPhaseDetail() {
   const location = useLocation();
   const programPhase = location.state as ProgramPhaseType;
-  const navigate = useNavigate()
 
   return (
     <div>
-      <button onClick={() => navigate(-1)}>Back</button>
-      <h1>{programPhase.name}</h1>
-      {programPhase.workouts.map((workout) => <Link to={`/workout/${workout._id}`}><Workout key={workout._id} workout={workout}/></Link>)}
+      <div style={{display: 'flex', alignItems: 'center' }}>
+        <BackButton/>
+        <h1 style={{margin: 0}}>{programPhase.name}</h1>
+      </div>
+      <ul>
+        {programPhase.workouts.map((workout) => 
+          <li>
+            <Link href={`/workout/${workout._id}`}>
+              <h2 className='link-primary'>{workout.name}</h2>
+            </Link>
+          </li>
+        )}
+      </ul>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ProgramType, getPrograms } from '../services/programsService';
-import Program from '../components/Program';
+import { Link } from '@mui/material';
 
 function Programs() {
   const [programs, setPrograms] = useState([] as ProgramType[]);
@@ -16,7 +15,16 @@ function Programs() {
 
   return (
     <div>
-      {programs.map((program) => <Link to={`/${program._id}`}><Program key={program._id} program={program}/></Link>)}
+      <h1>Workout programs</h1>
+      <ul>
+        {programs.map((program) => 
+          <li>
+            <Link href={`/${program._id}`}>
+              <h2 className='link-primary'>{program.name}</h2>
+            </Link>
+          </li>
+        )}
+      </ul>
     </div>
   );
 }
